@@ -65,5 +65,5 @@ using the discovered **create-verification-skill** skill's
 
 Tell them `/help` lists the pack. Slash-menu discovery depends on
 the harness; skills can also be loaded by path. `/interrogate` spawns
-one child per `reviewers` entry. A slug this session cannot run is
-a dropout.
+one child per `reviewers` entry. A slug this session cannot run
+falls through to its `>` fallback, else it is a dropout.

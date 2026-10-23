@@ -57,7 +57,8 @@ These fallbacks apply wherever a skill calls for the capability.
    to write, what to report. File pointers, not pasted dumps.
 4. Review the child's diff yourself. Do not pass through its summary.
 5. A missing model, failed child, or dropped worker is a named dropout.
-   Do not silently substitute another model.
+   Use only fallbacks declared in [models.md](models.md), and name them
+   when used. Do not silently substitute another model.
 6. Model overrides follow [models.md](models.md).
 7. New work goes to a fresh child with consolidated scope: the
    original brief, every later directive, the prior child's report

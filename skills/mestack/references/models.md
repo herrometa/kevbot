@@ -17,6 +17,12 @@ reviewers:
 - `inherit-parent` and `auto` mean: omit any child model field.
 - `code` is mechanical implementation.
 - `judgment` is design, prose, and synthesis.
+- An entry may also name an agent type this session can spawn, when
+  that definition pins model and effort. Spawn it by type and omit
+  the model field.
+- Any slug may name declared fallbacks with `>`: `fable > opus` runs
+  `fable`, else `opus`. The first runnable slug wins; report which one
+  ran and any skipped. None runnable is a dropout.
 - `reviewers` is an optional comma-separated list. `/interrogate`
   spawns one read-only child per entry. An empty list means no panel;
   the parent reviews.
@@ -25,8 +31,9 @@ reviewers:
 
 1. If the file does not exist, inherit the parent for every role.
 2. Use a role's line when present.
-3. A slug this session cannot run is a dropout for that lane. Do not
-   substitute.
+3. A slug this session cannot run falls through to its declared
+   fallback. With no fallback left, it is a dropout for that lane. Do
+   not substitute a model the file does not name.
 
 Use only model identifiers documented as selectable in this session.
 If selection is unavailable, inherit the parent for default work and

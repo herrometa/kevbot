@@ -23,15 +23,21 @@ Slash commands depend on the harness. Delegation, model selection,
 transcript access, and unattended continuation are optional capabilities;
 the capability contract defines fallbacks and blocked cases.
 
-The existing convenience installer targets the Amp/Grok directories:
+The convenience installer targets the Amp, Grok, and Claude Code
+directories:
 
 ```bash
 ./install.sh
 ```
 
-Symlinks `skills/*` into `~/.agents/skills/` and `~/.grok/skills/`,
-and `agents/mestack-agent.md` into `~/.grok/agents/`. Does not edit
-`config.toml` or `AGENTS.md`. Re-run after new skills appear.
+Symlinks `skills/*` into `~/.agents/skills/`, `~/.grok/skills/`, and
+`~/.claude/skills/`, `agents/mestack-agent.md` into
+`~/.grok/agents/` and `~/.claude/agents/`, and the Claude-only
+reviewers in `agents/claude/` into `~/.claude/agents/`. Honors
+`CLAUDE_CONFIG_DIR` and `GROK_HOME`. Skips any destination that
+exists and is not a symlink. Does not edit `config.toml`,
+`settings.json`, `AGENTS.md`, or `CLAUDE.md`. Re-run after new
+skills appear.
 
 Grok, as a plugin instead of (or besides) the links:
 
@@ -125,6 +131,7 @@ skills/maintain-verification-skill/
 skills/create-formal-verification-skill/   owns formal-* contract
 skills/maintain-formal-verification-skill/
 agents/mestack-agent.md                    Grok child; no nested spawn
+agents/claude/                             Claude-only reviewer agents
 docs/why.md                                design argument
 ```
 

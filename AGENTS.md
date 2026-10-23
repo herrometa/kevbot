@@ -38,7 +38,8 @@ skill. It does not restate the rule. Do not put procedures in
 - Wrap prose near 80 columns. Do not reflow playbook step lists for
   cosmetics.
 - `./install.sh` is the user-level install. Do not run it as a test;
-  it mutates `~/.agents/skills` and `~/.grok/skills`.
+  it mutates `~/.agents/skills`, `~/.grok/skills`, and
+  `~/.claude/skills`.
 - Check with `./scripts/check-skills.sh` after adding or renaming a
   skill.
 

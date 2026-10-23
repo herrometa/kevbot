@@ -15,7 +15,8 @@ judges. Do not auto-apply.
 The `reviewers` list in the discovered **mestack** skill's
 `references/models.md` is the panel. Empty list: the parent reviews
 once, labeled `parent`.
-A slug this session cannot run is a dropout. Do not substitute.
+A slug this session cannot run uses its declared fallback, else it is
+a dropout. Do not substitute an undeclared model.
 
 ## Steps
 
