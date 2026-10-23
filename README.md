@@ -1,9 +1,9 @@
 # kevbot
 
-Harness-agnostic engineering skills. Load the same Markdown procedures
-in an agent that can read instructions and use tools. Optional adapters
-cover Amp and Grok Build; other harnesses use the capability contract in
-[references/harness.md](skills/kevbot-mode/references/harness.md).
+Engineering skills for Claude Code. Markdown procedures the agent
+loads and follows; the capability contract in
+[references/harness.md](skills/kevbot-mode/references/harness.md)
+defines fallbacks when a tool is missing.
 
 ```text
 /kevbot-mode <goal, and how you will know it is done>
@@ -15,52 +15,15 @@ decision, and keeps subagent fan-out in the parent. Why that shape:
 
 ## Install
 
-Point your harness's skill search path at this repo's `skills/`, or
-symlink its skill directories into a location your harness discovers.
-Without skill discovery, ask the agent to read
-`skills/kevbot-mode/SKILL.md` by absolute path and follow its linked files.
-Slash commands depend on the harness. Delegation, model selection,
-transcript access, and unattended continuation are optional capabilities;
-the capability contract defines fallbacks and blocked cases.
-
-The convenience installer targets the Amp, Grok, and Claude Code
-directories:
-
 ```bash
 ./install.sh
 ```
 
-Symlinks `skills/*` into `~/.agents/skills/`, `~/.grok/skills/`, and
-`~/.claude/skills/`, `agents/kevbot-agent.md` into
-`~/.grok/agents/` and `~/.claude/agents/`, and the Claude-only
-reviewers in `agents/claude/` into `~/.claude/agents/`. Honors
-`CLAUDE_CONFIG_DIR` and `GROK_HOME`. Skips any destination that
-exists and is not a symlink. Does not edit `config.toml`,
-`settings.json`, `AGENTS.md`, or `CLAUDE.md`. Re-run after new
-skills appear.
-
-Grok, as a plugin instead of (or besides) the links:
-
-```bash
-grok plugin install /Users/kevin/src/kevbot --trust
-```
-
-Amp on this machine: the `~/.agents/skills` links, or add
-`~/src/kevbot/skills` to its skill path.
-
-For Amp orbs and other machines, ask Amp:
-
-```text
-Publish this kevbot skill pack to my Amp personal skills repository.
-```
-
-Copy all `skills/*` directories to that repository's top level, not
-just the dispatcher: it calls the other skills and their resources.
-Run `./scripts/check-skills.sh` before publishing; it also checks a
-versioned, non-executable hosted layout. Amp asks before pushing.
-New threads load the published skills automatically; reload skills
-in existing threads. Local skills with the same names take precedence.
-See [Amp's skills documentation](https://ampcode.com/docs/customize/skills).
+Symlinks `skills/*` into `~/.claude/skills/`, and
+`agents/kevbot-agent.md` plus the reviewers in `agents/claude/` into
+`~/.claude/agents/`. Honors `CLAUDE_CONFIG_DIR`. Skips any destination
+that exists and is not a symlink. Does not edit `settings.json`,
+`AGENTS.md`, or `CLAUDE.md`. Re-run after new skills appear.
 
 ## Setup
 
@@ -68,7 +31,7 @@ See [Amp's skills documentation](https://ampcode.com/docs/customize/skills).
 /setup-kevbot
 ```
 
-Writes `~/.agents/kevbot-models.md` if you want per-role model
+Writes `~/.claude/kevbot-models.md` if you want per-role model
 overrides. Offers a project `verify-*` skill when the current repo
 has a runnable app and none exists. Optional always-on routing:
 
@@ -78,7 +41,7 @@ read and follow the kevbot-mode skill before acting. Casual questions stay
 ordinary chat. The user can opt out for a turn by saying so.
 ```
 
-Put that in a user or project instructions file your harness loads.
+Put that in a user or project `CLAUDE.md`.
 
 ## Commands
 
@@ -114,7 +77,7 @@ Put that in a user or project instructions file your harness loads.
 Playbooks behind `/kevbot-mode`: `investigate`, `fix`, `build`,
 `reshape`, `leave-running`.
 
-`/prove` prefers `<repo>/.agents/skills/verify-<app>/`, then an
+`/prove` prefers `<repo>/.claude/skills/verify-<app>/`, then an
 existing harness, then a one-off invocation. Create writes that
 skill (launch, doctor, drive, evidence, feature map) and runs one
 feature before handoff. Details: [docs/why.md](docs/why.md).
@@ -122,7 +85,7 @@ feature before handoff. Details: [docs/why.md](docs/why.md).
 ## Layout
 
 ```text
-skills/kevbot-mode/                        dispatcher, playbooks, adapters
+skills/kevbot-mode/                        dispatcher, playbooks, references
 skills/principle-*/                        one rule each; slash-hidden
 skills/how prove setup-kevbot help
 skills/<name>/                             situational; /help lists them
@@ -130,7 +93,7 @@ skills/create-verification-skill/          owns verify-* contract
 skills/maintain-verification-skill/
 skills/create-formal-verification-skill/   owns formal-* contract
 skills/maintain-formal-verification-skill/
-agents/kevbot-agent.md                    Grok child; no nested spawn
+agents/kevbot-agent.md                     child agent; no nested spawn
 agents/claude/                             Claude-only reviewer agents
 docs/why.md                                design argument
 ```

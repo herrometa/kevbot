@@ -1,6 +1,6 @@
 # Why kevbot is shaped this way
 
-Kevbot is one skill tree that different agent harnesses load. Skills
+Kevbot is one skill tree that Claude Code loads. Skills
 are procedures. This file is the argument for the load-bearing
 choices. If a rule and this memo disagree, the skill that owns the
 rule wins; fix this file.
@@ -23,11 +23,10 @@ when --json is off.
 Three things have to happen: someone must understand export, someone
 must change it, someone must run the real binary.
 
-If the parent spawns a fixer, and the fixer spawns a reviewer, Grok
-Build rejects the inner spawn. Depth is one: only the top-level
-session may call `spawn_subagent`; a child that calls it gets a
-depth-limit error (`~/.grok/docs/user-guide/16-subagents.md`). The
-review becomes the child's own summary. That summary is untrusted.
+If the parent spawns a fixer, and the fixer spawns a reviewer, the
+inner spawn does not happen. Depth is one: Claude Code subagents
+cannot spawn subagents. The review becomes the child's own summary.
+That summary is untrusted.
 
 If nobody encodes how to start and drive export, `/prove` invents a
 path (`cargo test`, a helper the user does not run). The next session
@@ -39,7 +38,7 @@ fixes the first. A project `verify-*` skill fixes the second.
 
 ## Invariants
 
-1. **One skill tree, any capable harness.** Sessions load the same
+1. **One skill tree.** Sessions load the same
    `SKILL.md` files. Harness tool names live only in
    `skills/kevbot-mode/references/`.
 2. **The parent owns every spawn.** Children never spawn. Writers do
@@ -52,11 +51,9 @@ fixes the first. A project `verify-*` skill fixes the second.
    generated `verify-*` as a side effect of a fix unless the user
    asked.
 
-Amp and Grok were the original installation targets, as recorded in
-the first commit. The nested-spawn failure above motivated a portable
-ownership rule. It does not require restricting the skill pack to
-those harnesses. Parent-owned synthesis remains useful even where
-nested delegation is supported.
+The nested-spawn failure above motivated the ownership rule.
+Parent-owned synthesis would stay useful even if nested delegation
+were supported.
 
 ## Mechanism
 
@@ -69,18 +66,13 @@ playbook is `fix`: reproduce on the binary, patch the cause, prove
 on the binary. The parent may spawn read-only explorers for `how`.
 It does not hand the whole task to a child and wait for "looks good."
 
-### Adapters
+### Capability contract
 
-A mandatory Amp-or-Grok choice made an otherwise portable procedure
-undefined in a third harness. `references/harness.md` now owns a
-capability contract, with optional adapters for known integrations.
-A new harness can use its documented tools without a new adapter.
-Missing tools reduce what can be done or proved; they do not justify
-inventing a tool call or treating a parent review as an independent one.
-
-The existing installer remains a convenience for its original targets.
-Loading a skill tree and executing its procedures are separate concerns;
-a harness can load the same files from its own discovery path.
+`references/harness.md` owns a capability contract rather than a
+tool-name table. Skills ask for a capability; the session's own tool
+instructions say how. Missing tools reduce what can be done or proved;
+they do not justify inventing a tool call or treating a parent review
+as an independent one.
 
 ### Project `verify-*`
 
@@ -90,14 +82,13 @@ signal, and "duplicate rows" observation belong to the app repo.
 `/create-verification-skill` interviews the checkout and writes:
 
 ```text
-<repo>/.agents/skills/verify-<app>/SKILL.md
-<repo>/.agents/skills/verify-<app>/features/
+<repo>/.claude/skills/verify-<app>/SKILL.md
+<repo>/.claude/skills/verify-<app>/features/
 ```
 
-The original targets shared `.agents/skills/` discovery. Keeping one
-canonical location avoids drift when a new harness uses a different
-search path. Discovery can be configured or the file loaded explicitly;
-it does not need a second copy of the verification recipe.
+That is Claude Code's project skill directory, so the next session
+finds the skill without setup. Keeping one canonical location avoids
+drift; there is no second copy of the verification recipe.
 
 Create must run launch → doctor → one mapped feature → evidence →
 cleanup before handoff. A skill whose Drive section was never
@@ -123,7 +114,7 @@ Its skill bodies name Cursor `Task`, sticky mode, cloud agents, and
 `~/.cursor/rules/*.mdc`. Those strings do not resolve here. A
 mechanical substitute table is a second product to sync. kevbot
 keeps the problem (throughput without a checkable finish condition)
-and keeps harness-specific primitives in optional adapters. The cost
+and keeps harness-specific primitives out of skill bodies. The cost
 is less playbook coverage (no arena or
 Graphite autopilot in v0.2). `/interrogate` exists; it runs the
 `reviewers` list on this parent, not a vendor mix.
@@ -137,8 +128,9 @@ next sync starts from that commit:
 `git log 4ec7ffa..origin/main -- pstack`.
 
 **Let children spawn.** That matches "a fixer with its own
-reviewer." On Grok it does not run. On Amp it still puts the
-synthesis in a context that has not seen the user's constraints.
+reviewer." Claude Code subagents cannot spawn, so it does not run.
+Even where it could, it puts the synthesis in a context that has not
+seen the user's constraints.
 The parent already has the goal and the finish condition; it is the
 cheaper place to read diffs.
 
@@ -147,11 +139,6 @@ one-off CLI flag in a repo you will not open again. The second
 session pays the interview cost again, and the invented path is not
 in git. Create is the encode-the-rule step for a repo that will see
 more than one prove.
-
-**Write new verify skills under `.grok/skills/` too.** Grok would
-still find them. Amp would not, unless you also teach Amp that path.
-The overlapping discovery directory is `.agents/skills/`. A second
-write is a second home.
 
 ## Limits
 
@@ -165,16 +152,15 @@ slug this session cannot run is a dropout, not a silent substitute
 (`references/models.md`). Arena-style bakeoffs are parent-owned
 spawns with unique worktrees, not a named playbook yet.
 
-The Grok restriction above records the original design motivation,
-not a current compatibility guarantee. No cross-harness execution suite
-exists here. The capability contract describes how to adapt; it does
-not establish that every harness discovers skills or follows them.
+No execution suite exists here. The capability contract describes
+fallbacks; it does not establish that a session discovers the skills
+or follows them.
 
 ## Conclusion
 
 Load kevbot as skills. Run `/kevbot-mode` for non-trivial work. Put
 app-specific drive recipes in the app repo under
-`.agents/skills/verify-<app>/`. Keep arguments in this file and
+`.claude/skills/verify-<app>/`. Keep arguments in this file and
 orders in `SKILL.md`.
 
 What you can rely on: fan-out is flat; verify skills have one write

@@ -11,7 +11,7 @@
 | `/in-your-own-words` | Play back the user's goal and the problem behind it before any work. |
 | `/interrogate` | Adversarial review of a change by one child per configured reviewer. |
 | `/ketchup` | Bring the user current on this chat since they last wrote, plainly, then lay out each pending call of theirs with what they need to make it without clicking through. |
-| `/kevbot-mode` | Kevin's harness-agnostic engineering dispatcher. |
+| `/kevbot-mode` | Kevin's engineering dispatcher. |
 | `/maintain-formal-verification-skill` | Re-sync a repo's formal-* checks with code that moved since their last confirmation: read those commits, update the model from the code, rerun, and classify each failure as drift or bug. |
 | `/maintain-verification-skill` | Keep a project's verify-* skill and feature map honest: source pass per feature, one live drive of every feature, proven corrections only. |
 | `/make-bot-ui` | Build a local page whose buttons start agent work through an available CLI or API, keeping secrets on the server. |

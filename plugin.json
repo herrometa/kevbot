@@ -2,7 +2,7 @@
   "name": "kevbot",
   "displayName": "kevbot",
   "version": "0.3.0",
-  "description": "Rigor-first agent workflows for Amp and Grok Build. Entry point: /kevbot-mode.",
+  "description": "Rigor-first agent workflows for Claude Code. Entry point: /kevbot-mode.",
   "license": "MIT",
   "skills": "./skills/",
   "agents": "./agents/"

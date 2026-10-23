@@ -65,10 +65,9 @@ this run (session or agent id). Use phase `start` for nothing else.
 
 ## Before handoff
 
-Walk this run's rows against this session's transcript (harness
-adapter session path). This run's rows begin at its `start` rows, or
-at the first row if it created the log, and end at the next `start`
-row from another run.
+Walk this run's rows against this session's transcript. This run's
+rows begin at its `start` rows, or at the first row if it created the
+log, and end at the next `start` row from another run.
 
 Correct the log, not the story. Never edit or delete a row, even an
 invented one. If a row records no real decision or action, or its

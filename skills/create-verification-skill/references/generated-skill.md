@@ -1,6 +1,6 @@
 # Generated `verify-<slug>` skill
 
-The file `<repo>/.agents/skills/verify-<slug>/SKILL.md` is for a cold
+The file `<repo>/.claude/skills/verify-<slug>/SKILL.md` is for a cold
 agent mid-task. No placeholders. Every command, port, selector, and
 path must be one this repo actually uses.
 

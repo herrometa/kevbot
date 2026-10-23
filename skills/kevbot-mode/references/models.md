@@ -1,6 +1,6 @@
 # Models
 
-Optional override file: `~/.agents/kevbot-models.md`.
+Optional override file: `~/.claude/kevbot-models.md`.
 
 `/setup-kevbot` writes it. A missing file, or a missing role line,
 means inherit the parent session model.

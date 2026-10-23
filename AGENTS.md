@@ -9,7 +9,7 @@ build, no tests beyond `scripts/check-skills.sh`, no dependencies.
 | --- | --- |
 | `skills/kevbot-mode/SKILL.md` | Dispatcher: playbook match, principle index, reply shape. |
 | `skills/kevbot-mode/playbooks/` | Numbered steps copied into the todo list verbatim. |
-| `skills/kevbot-mode/references/` | Harness and model translation. The only place Amp/Grok tool names live. |
+| `skills/kevbot-mode/references/` | Harness and model translation. The only place harness tool names live. |
 | `skills/principle-*/SKILL.md` | One rule per directory. |
 | `skills/help` | Catalog of current kevbot skills. |
 | `skills/how`, `prove`, `setup-kevbot` | Situational skills the dispatcher calls. |
@@ -38,8 +38,7 @@ skill. It does not restate the rule. Do not put procedures in
 - Wrap prose near 80 columns. Do not reflow playbook step lists for
   cosmetics.
 - `./install.sh` is the user-level install. Do not run it as a test;
-  it mutates `~/.agents/skills`, `~/.grok/skills`, and
-  `~/.claude/skills`.
+  it mutates `~/.claude/skills` and `~/.claude/agents`.
 - Check with `./scripts/check-skills.sh` after adding or renaming a
   skill.
 

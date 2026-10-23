@@ -101,13 +101,6 @@ while IFS= read -r line; do
 done < <(find "$ROOT/skills" -name '*.md' -exec \
   grep -n -E 'AskQuestion|\.mdc|pstack-models' {} + 2>/dev/null || true)
 
-while IFS= read -r line; do
-  [[ -n "$line" ]] || continue
-  fail "harness primitive outside adapter references: $line"
-done < <(find "$ROOT/skills" -name '*.md' \
-  ! -path "$ROOT/skills/kevbot-mode/references/*" -exec \
-  grep -n -E 'spawn_subagent|get_command_or_subagent_output|run_terminal_command|scheduler_create|ask_user_question|`explore`|grok -p|Amp orb' {} + 2>/dev/null || true)
-
 if ! bash "$ROOT/scripts/check-hosted-skills.sh"; then
   fail "hosted skill checks failed"
 fi

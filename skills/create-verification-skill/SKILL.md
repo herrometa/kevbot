@@ -48,7 +48,7 @@ A library with no runnable surface: stop. Say so. Do not invent a UI.
 
 ## 3. Write the skill
 
-Create `<repo>/.agents/skills/verify-<slug>/SKILL.md` that satisfies
+Create `<repo>/.claude/skills/verify-<slug>/SKILL.md` that satisfies
 [references/generated-skill.md](references/generated-skill.md). Fill
 every section from the interview. No template leftovers.
 

@@ -23,7 +23,7 @@ the same directories. Do not run `install.sh` unless the user asks.
 
 ## 2. Models
 
-Read `~/.agents/kevbot-models.md` if it exists. Otherwise start from
+Read `~/.claude/kevbot-models.md` if it exists. Otherwise start from
 the default shape in
 the **kevbot-mode** skill's `references/models.md`.
 
@@ -32,7 +32,7 @@ whether to keep inherit-parent for everything or set specific slugs
 this session can actually run. Never write a slug you have not seen
 in this session's model list.
 
-Write `~/.agents/kevbot-models.md` in the shape from
+Write `~/.claude/kevbot-models.md` in the shape from
 the **kevbot-mode** skill's `references/models.md`.
 Overwrite the whole file so reruns stay idempotent.
 

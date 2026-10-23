@@ -68,7 +68,7 @@ Hold each of these:
 
 ## 4. Write the project skill
 
-Location: `<repo>/.agents/skills/formal-<area>/SKILL.md`, `name`
+Location: `<repo>/.claude/skills/formal-<area>/SKILL.md`, `name`
 matching the directory. The `formal-` prefix keeps **prove** from
 treating it as an app driver (those are `verify-*`). The frontmatter
 description says what it checks and when to run it.

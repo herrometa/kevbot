@@ -1,10 +1,7 @@
 # Harness
 
 Resolve capabilities once per task from the current session's tool
-instructions. A harness name is not a prerequisite. Read an optional
-adapter only when the session identifies itself as [Amp](amp.md) or
-[Grok Build](grok.md). Current tool instructions take precedence over
-adapter examples. Environment variables alone do not identify a harness.
+instructions.
 
 ## Capabilities
 
@@ -43,7 +40,7 @@ in this session; unknown is not permission to guess a tool or command.
   limit. Do not promise unattended continuation after the session ends.
 - **Current-session schedule.** Recurring prompt in this conversation,
   with this transcript and a blocking yes/no. A background child or
-  overnight orb is not this. If unavailable, say so and stop. Do not
+  overnight run is not this. If unavailable, say so and stop. Do not
   fake it with a child.
 
 These fallbacks apply wherever a skill calls for the capability.
