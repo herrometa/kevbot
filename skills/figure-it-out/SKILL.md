@@ -23,7 +23,7 @@ work. Do not invent a second overnight contract.
 
 ## Steps
 
-1. Read the Principles index in the **kevbot** skill. Name each
+1. Read the Principles index in the **kevbot-mode** skill. Name each
    principle that changes a decision.
 2. Frame, then stop long enough to say it:
    - Done as a falsifiable predicate (**prove-on-the-artifact**).

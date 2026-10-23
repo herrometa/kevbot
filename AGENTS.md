@@ -7,9 +7,9 @@ build, no tests beyond `scripts/check-skills.sh`, no dependencies.
 
 | Path | Owns |
 | --- | --- |
-| `skills/kevbot/SKILL.md` | Dispatcher: playbook match, principle index, reply shape. |
-| `skills/kevbot/playbooks/` | Numbered steps copied into the todo list verbatim. |
-| `skills/kevbot/references/` | Harness and model translation. The only place Amp/Grok tool names live. |
+| `skills/kevbot-mode/SKILL.md` | Dispatcher: playbook match, principle index, reply shape. |
+| `skills/kevbot-mode/playbooks/` | Numbered steps copied into the todo list verbatim. |
+| `skills/kevbot-mode/references/` | Harness and model translation. The only place Amp/Grok tool names live. |
 | `skills/principle-*/SKILL.md` | One rule per directory. |
 | `skills/help` | Catalog of current kevbot skills. |
 | `skills/how`, `prove`, `setup-kevbot` | Situational skills the dispatcher calls. |

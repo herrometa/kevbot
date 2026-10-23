@@ -16,7 +16,7 @@ Read-only understanding. No edits.
 1. Restate the question and the subsystem boundary.
 2. If the area is large (several packages or an unclear entrypoint),
    spawn two to four read-only explorers from the parent, per
-   the discovered **kevbot** skill's `references/harness.md`.
+   the discovered **kevbot-mode** skill's `references/harness.md`.
    Partition by entrypoint or package. Each explorer returns paths,
    types, and a flow in a few paragraphs. The parent reads the code
    they cite.

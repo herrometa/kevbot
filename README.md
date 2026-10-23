@@ -3,13 +3,13 @@
 Harness-agnostic engineering skills. Load the same Markdown procedures
 in an agent that can read instructions and use tools. Optional adapters
 cover Amp and Grok Build; other harnesses use the capability contract in
-[references/harness.md](skills/kevbot/references/harness.md).
+[references/harness.md](skills/kevbot-mode/references/harness.md).
 
 ```text
-/kevbot <goal, and how you will know it is done>
+/kevbot-mode <goal, and how you will know it is done>
 ```
 
-`/kevbot` picks a playbook, applies the principles that change a
+`/kevbot-mode` picks a playbook, applies the principles that change a
 decision, and keeps subagent fan-out in the parent. Why that shape:
 [docs/why.md](docs/why.md).
 
@@ -18,7 +18,7 @@ decision, and keeps subagent fan-out in the parent. Why that shape:
 Point your harness's skill search path at this repo's `skills/`, or
 symlink its skill directories into a location your harness discovers.
 Without skill discovery, ask the agent to read
-`skills/kevbot/SKILL.md` by absolute path and follow its linked files.
+`skills/kevbot-mode/SKILL.md` by absolute path and follow its linked files.
 Slash commands depend on the harness. Delegation, model selection,
 transcript access, and unattended continuation are optional capabilities;
 the capability contract defines fallbacks and blocked cases.
@@ -74,7 +74,7 @@ has a runnable app and none exists. Optional always-on routing:
 
 ```text
 Non-trivial engineering work (bug, feature, refactor, investigation):
-read and follow the kevbot skill before acting. Casual questions stay
+read and follow the kevbot-mode skill before acting. Casual questions stay
 ordinary chat. The user can opt out for a turn by saying so.
 ```
 
@@ -84,7 +84,7 @@ Put that in a user or project instructions file your harness loads.
 
 | Command | When |
 | --- | --- |
-| `/kevbot` | Non-trivial engineering work |
+| `/kevbot-mode` | Non-trivial engineering work |
 | `/help` | List kevbot skills |
 | `/how` | Walk a subsystem, read-only |
 | `/prove` | Exercise the real artifact |
@@ -111,7 +111,7 @@ Put that in a user or project instructions file your harness loads.
 | `/create-formal-verification-skill` | Model-check or prove one risky promise |
 | `/maintain-formal-verification-skill` | That formal check drifted from the code |
 
-Playbooks behind `/kevbot`: `investigate`, `fix`, `build`,
+Playbooks behind `/kevbot-mode`: `investigate`, `fix`, `build`,
 `reshape`, `leave-running`.
 
 `/prove` prefers `<repo>/.agents/skills/verify-<app>/`, then an
@@ -122,7 +122,7 @@ feature before handoff. Details: [docs/why.md](docs/why.md).
 ## Layout
 
 ```text
-skills/kevbot/                            dispatcher, playbooks, adapters
+skills/kevbot-mode/                        dispatcher, playbooks, adapters
 skills/principle-*/                        one rule each; slash-hidden
 skills/how prove setup-kevbot help
 skills/<name>/                             situational; /help lists them
@@ -135,7 +135,7 @@ agents/claude/                             Claude-only reviewer agents
 docs/why.md                                design argument
 ```
 
-Harness tool names live only in `skills/kevbot/references/`.
+Harness tool names live only in `skills/kevbot-mode/references/`.
 
 ## Status
 

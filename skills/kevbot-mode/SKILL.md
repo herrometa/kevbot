@@ -1,15 +1,15 @@
 ---
-name: kevbot
+name: kevbot-mode
 description: >
   Kevin's harness-agnostic engineering dispatcher. Picks a playbook,
   applies kevbot principles, and keeps subagent fan-out in the parent.
-  Use for /kevbot, kevbot-mode, or non-trivial engineering work (bug,
+  Use for /kevbot-mode or non-trivial engineering work (bug,
   feature, refactor, investigation, overnight run).
 disable-model-invocation: true
 argument-hint: goal and how you will know it is done
 ---
 
-# kevbot
+# kevbot-mode
 
 Read [references/harness.md](references/harness.md) once per task to
 resolve available capabilities and fallbacks before choosing tools.

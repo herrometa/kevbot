@@ -15,7 +15,7 @@ two failures illegal.
 You ask:
 
 ```text
-/kevbot the export writes duplicate rows when a retry lands mid-run.
+/kevbot-mode the export writes duplicate rows when a retry lands mid-run.
 repro first, then fix and verify. text output stays byte-identical
 when --json is off.
 ```
@@ -41,7 +41,7 @@ fixes the first. A project `verify-*` skill fixes the second.
 
 1. **One skill tree, any capable harness.** Sessions load the same
    `SKILL.md` files. Harness tool names live only in
-   `skills/kevbot/references/`.
+   `skills/kevbot-mode/references/`.
 2. **The parent owns every spawn.** Children never spawn. Writers do
    not share a writable path.
 3. **One home per fact.** A search path, a playbook step, a model
@@ -62,7 +62,7 @@ nested delegation is supported.
 
 ### Dispatcher
 
-`/kevbot` matches a playbook and copies its steps into the todo
+`/kevbot-mode` matches a playbook and copies its steps into the todo
 list. Principles are leaves; the dispatcher only indexes them. If
 the work is "understand / change / prove" on the export bug, the
 playbook is `fix`: reproduce on the binary, patch the cause, prove
@@ -172,7 +172,7 @@ not establish that every harness discovers skills or follows them.
 
 ## Conclusion
 
-Load kevbot as skills. Run `/kevbot` for non-trivial work. Put
+Load kevbot as skills. Run `/kevbot-mode` for non-trivial work. Put
 app-specific drive recipes in the app repo under
 `.agents/skills/verify-<app>/`. Keep arguments in this file and
 orders in `SKILL.md`.
