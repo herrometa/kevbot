@@ -32,6 +32,20 @@ Cut or replace these. Not an exhaustive style guide.
 Abstract nouns that sound technical: substrate, nexus, north star,
 flywheel, gold-plating, endgame. Use the concrete word.
 
+## Mannered prose
+
+Figures where a literal phrase exists: aphorisms ("ship it or kill
+it"), fragments for effect, code with feelings ("the parser
+insists"), figurative verbs ("rides along", "sits on top of"). Say
+the literal thing.
+
+## Over-compression
+
+Dropped articles, verbless fragments, arrows, and private
+abbreviations make the reader decode. "cfg missing → fallback, warn"
+becomes "If the config file is missing, it falls back to defaults and
+logs a warning." Terse is fine. Telegraphic is not.
+
 ## Plain speech
 
 Say the mechanism or the number, not the feeling. One idea per

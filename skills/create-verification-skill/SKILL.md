@@ -72,6 +72,11 @@ Fix failures and rerun cleanup after every failed attempt so ports and
 processes do not leak. A skill you have not executed is a draft. Do
 not hand over a draft.
 
+If the proof ran on a substitute (a container standing in for a
+fresh VM, a local stack for a hosted one), name each setup step the
+substitute supplied for free that the real target will not. Treat
+those as unproven until something runs on the real target.
+
 ## 6. Hand off
 
 Tell the user the skill path, which feature you proved, and where the

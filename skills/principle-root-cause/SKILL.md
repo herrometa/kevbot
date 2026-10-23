@@ -9,9 +9,29 @@ user-invocable: false
 Reproduce the symptom before editing. If you cannot reproduce it, you
 cannot know you fixed it.
 
-Ask why until you reach the code that made the bad state legal. Fix
-that. A catch, a retry, or a nil-check that swallows the crash is not
-a fix unless the invariant truly allows the empty case.
+The symptom is where a bad state showed up. The cause is the
+earliest point where the system either made a wrong move or dropped
+a state it was meant to handle. Keep asking why until you land on a
+wrong decision in code rather than a downstream effect. Stuck? Add
+instrumentation and read the actual error and values. No guessing.
 
-Record the repro (command, input, observed output) next to the patch
-so the next failure has a starting point.
+Then ask whether the triggering state is allowed. Allowed: the code
+that choked on it is at fault, so teach that code to handle it. Not
+allowed: a guard at the crash site only buries the bug, so go find the
+code that created the state. Catches, retries, clamps, nil-checks, and
+dropped state are the usual hiding places.
+
+Failures that appear only after restarting point at saved state
+first: config, caches, lock files, serialized data.
+
+Fix the pattern, not the instance. Search for the same fault
+elsewhere. A workaround that needs a paragraph of comment to justify
+it means the code is wrong.
+
+Two fixes on one belief failed the same check: stop and run
+**attack-the-premise**.
+
+Record the repro (command, input, observed output) next to the patch.
+If the deciding fact took a deep dig, propose the cheap always-on
+signal (a log line, a metric, an assertion) that would have shown it
+at first look.

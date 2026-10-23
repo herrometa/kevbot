@@ -128,6 +128,14 @@ is less playbook coverage (no arena or
 Graphite autopilot in v0.2). `/interrogate` exists; it runs the
 `reviewers` list on this parent, not a vendor mix.
 
+Ideas still flow one way, rewritten rather than copied. The last
+review covered pstack in `cursor/plugins` through `4ec7ffa`
+(2026-10-22). Not taken from that pass: `statechart` (a large
+TLA+-to-Mermaid toolkit; revisit if formal checks become routine
+here) and `poteto-help` (`/help` and `/setup-mestack` cover it). The
+next sync starts from that commit:
+`git log 4ec7ffa..origin/main -- pstack`.
+
 **Let children spawn.** That matches "a fixer with its own
 reviewer." On Grok it does not run. On Amp it still puts the
 synthesis in a context that has not seen the user's constraints.

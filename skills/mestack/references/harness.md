@@ -59,6 +59,12 @@ These fallbacks apply wherever a skill calls for the capability.
 5. A missing model, failed child, or dropped worker is a named dropout.
    Do not silently substitute another model.
 6. Model overrides follow [models.md](models.md).
+7. New work goes to a fresh child with consolidated scope: the
+   original brief, every later directive, the prior child's report
+   and branch. That covers fix rounds, retries, and follow-ups.
+   Continue an existing child only when the work needs state that is
+   costly to move: its checkout, uncommitted changes, or a process it
+   still runs. Resumed children drop directives silently.
 
 ## Overnight
 

@@ -32,3 +32,13 @@ Use only model identifiers documented as selectable in this session.
 If selection is unavailable, inherit the parent for default work and
 report explicit overrides as dropouts. Do not launch an external
 vendor CLI to satisfy an unavailable override.
+
+## Effort
+
+When the session exposes a reasoning-effort or speed setting for
+children, pick it per job. Start from the role's default. Raise one
+step for the hardest or subtlest work, lower for routine work. Use a
+fast mode only when someone is blocked on the result now. Change the
+effort, not the model family, so a reviewer panel stays diverse. If
+the adjusted setting is rejected, fall back to the role's default and
+say so.

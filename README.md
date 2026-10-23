@@ -97,6 +97,13 @@ Put that in a user or project instructions file your harness loads.
 | `/create-verification-skill` | Repo has an app and no `verify-*` yet |
 | `/maintain-verification-skill` | That skill or its map drifted |
 | `/setup-mestack` | Install check and model sheet |
+| `/ketchup` | Catch up on this chat; list your pending calls |
+| `/in-your-own-words` | Play back the goal before work |
+| `/sharpen` | Rewrite a prompt to ask for a deeper task |
+| `/correct` | Make a repeated agent mistake impossible |
+| `/benchmark-checklist` | Vet a measured speedup or regression |
+| `/create-formal-verification-skill` | Model-check or prove one risky promise |
+| `/maintain-formal-verification-skill` | That formal check drifted from the code |
 
 Playbooks behind `/mestack`: `investigate`, `fix`, `build`,
 `reshape`, `leave-running`.
@@ -109,14 +116,16 @@ feature before handoff. Details: [docs/why.md](docs/why.md).
 ## Layout
 
 ```text
-skills/mestack/                      dispatcher, playbooks, adapters
-skills/principle-*/                  one rule each; slash-hidden
+skills/mestack/                            dispatcher, playbooks, adapters
+skills/principle-*/                        one rule each; slash-hidden
 skills/how prove setup-mestack help
-skills/<name>/                       situational; /help lists them
-skills/create-verification-skill/    owns verify-* contract
+skills/<name>/                             situational; /help lists them
+skills/create-verification-skill/          owns verify-* contract
 skills/maintain-verification-skill/
-agents/mestack-agent.md              Grok child; no nested spawn
-docs/why.md                          design argument
+skills/create-formal-verification-skill/   owns formal-* contract
+skills/maintain-formal-verification-skill/
+agents/mestack-agent.md                    Grok child; no nested spawn
+docs/why.md                                design argument
 ```
 
 Harness tool names live only in `skills/mestack/references/`.

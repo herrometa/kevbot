@@ -23,7 +23,7 @@ This skill is the loop when that repro is a cheap test.
 2. Pick the narrowest check this repo already uses for that path.
    If none is cheap, do not invent a heavy harness to satisfy TDD.
 3. Write the failing test first. It encodes intended behavior, not
-   the current implementation.
+   the current implementation (**test-behavior**).
 4. Run it. It must fail for the intended reason. If it passes, or
    fails for a different reason, fix the test before production code.
 5. Smallest production change that makes the intent hold

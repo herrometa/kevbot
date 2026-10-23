@@ -23,8 +23,13 @@ description: >
 ### Launch
 
 Exact command that starts the app for verification. How to know it is
-ready (log line, port, prompt). Env vars, ports, seed data, auth.
-Teardown of what this run started.
+ready (log line, prompt, a request that succeeds). Env vars, ports,
+seed data, auth. Teardown of what this run started.
+
+Launch reaches a usable state from an empty data directory,
+including migrations and seed data. Ready means a user action would
+work, not merely that a port is open. Databases often report healthy
+before their init scripts finish.
 
 A short-lived CLI has no server: launch means build or install once,
 then each drive gets its own process.

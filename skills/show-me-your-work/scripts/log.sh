@@ -33,8 +33,10 @@ ts="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 dir="$(dirname "$logfile")"
 mkdir -p "$dir"
 
-if [[ ! -f "$logfile" ]]; then
-  printf '%s\n' "$header" >"$logfile"
+# Append, never truncate: if this test misfires on a network mount,
+# the cost is a stray header line, not the rows.
+if [[ ! -s "$logfile" ]]; then
+  printf '%s\n' "$header" >>"$logfile"
 elif ! IFS= read -r first <"$logfile" || [[ "$first" != "$header" ]]; then
   printf 'error: %s is not a show-me-your-work log\n' "$logfile" >&2
   exit 1

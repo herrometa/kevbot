@@ -16,6 +16,8 @@ build, no tests beyond `scripts/check-skills.sh`, no dependencies.
 | other `skills/*` | User-invocable procedures. `/help` lists them. Dispatcher names the ones it routes to. |
 | `skills/create-verification-skill/` | Generator for a project-local `verify-<app>` skill. Owns location, generated-skill contract, and feature-map shape. |
 | `skills/maintain-verification-skill/` | Upkeep loop for that project skill. Points at create's references. |
+| `skills/create-formal-verification-skill/` | Generator for a project-local `formal-<area>` skill. Owns its location and contract. |
+| `skills/maintain-formal-verification-skill/` | Upkeep loop for that skill. Points at create. |
 | `docs/why.md` | Design argument (parent-owned fan-out, verify-* path, rejected alternatives). Not a second copy of skill rules. |
 | `README.md` | Install, commands, layout. Points at `docs/why.md` for why. |
 

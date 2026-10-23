@@ -53,3 +53,7 @@ file.
 Write from the user's point of view. Cite repo paths for selectors
 and commands. If a feature cannot be reached without auth or extra
 state, say that in Gotchas. Do not pretend a public path exists.
+
+If seed data lacks a precondition a journey needs, the journey fails
+and the reason goes in Gotchas. Do not weaken the journey until it
+passes.

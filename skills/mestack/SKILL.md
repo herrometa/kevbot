@@ -21,7 +21,8 @@ resolve available capabilities and fallbacks before choosing tools.
    verbatim, before any task-specific todos. A skipped step stays in
    the list with `skip: <reason>`.
 3. Name each principle that changes a decision, and the choice it
-   changed. A citation with no decision is a miss; read the leaf skill.
+   changed. Cite only leaves you read this session. A citation with no
+   decision is a miss.
 
 If no playbook fits, run the **figure-it-out** skill. Do not invent
 a second dispatcher.
@@ -49,6 +50,13 @@ Read the leaf in full when you apply it.
   how.
 - **Root cause** (`principle-root-cause`). Debugging. Reproduce first.
   Do not silence the crash.
+- **Attack the premise** (`principle-attack-the-premise`). Two fixes
+  on one belief failed the same check. Test the belief, not a third
+  fix.
+- **Test behavior** (`principle-test-behavior`). Writing or keeping a
+  test. Fails when behavior breaks, survives a refactor.
+- **Explain the number** (`principle-explain-the-number`). Before
+  reporting a measurement. Name the limiter, rule out other readings.
 - **Parent owns fan-out** (`principle-parent-owns-fan-out`). Any
   parallel work. Children do not spawn children.
 - **Reversible without asking** (`principle-reversible-without-asking`).
@@ -99,9 +107,16 @@ Read the leaf in full when you apply it.
   paths, then the parent reads and synthesizes. See harness.md.
 - Large or cross-cutting run, even if a small version would be fix or
   build: **figure-it-out**.
+- Concurrency, retries, state machines, parsers, or unsafe code where
+  tests cannot reach the bad case: **create-formal-verification-skill**
+  (once per repo), then that project `formal-*` skill. Drifted:
+  **maintain-formal-verification-skill**.
+- Measured a speedup or regression: **benchmark-checklist** before
+  reporting it.
+- The user corrected the same mistake twice: **correct**.
 - Adversarial review of a change: **interrogate**.
-- Catch-up on recent work: **recall**. Teach-me: **teach**. Explicit
-  TDD: **tdd**.
+- Catch-up on recent work: **recall**. Catch-up within this chat:
+  **ketchup**. Teach-me: **teach**. Explicit TDD: **tdd**.
 - Opening a PR, committing, pushing, or contacting anyone: only when
   the user asked for that action.
 
@@ -123,8 +138,11 @@ Short declarative sentences. One thought per sentence.
 Frame the consumer and the next maintainer before implementation
 detail. If neither would notice, the work or the explanation is off.
 
-Every important claim needs evidence from this session (command,
-path, diff hunk, screenshot) or an explicit unknown. Do not fabricate
+Attach evidence or a label to every important claim, inside the
+sentence that makes it. Evidence comes from this session: command,
+path, diff hunk, screenshot. Labels are `inferred`, `guess`, or
+`unknown`. Forecasts and causes you did not observe are guesses. Do
+not hand the user a check you could run yourself. Do not fabricate
 links.
 
 Match the playbook's required sections. Terse is not a reason to drop
