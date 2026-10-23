@@ -20,8 +20,8 @@ reviewers:
 - An entry may also name an agent type this session can spawn, when
   that definition pins model and effort. Spawn it by type and omit
   the model field.
-- Any slug may name declared fallbacks with `>`: `fable > opus` runs
-  `fable`, else `opus`. The first runnable slug wins; report which one
+- Any slug may name declared fallbacks with `>`: `opus > sonnet` runs
+  `opus`, else `sonnet`. The first runnable slug wins; report which one
   ran and any skipped. None runnable is a dropout.
 - `reviewers` is an optional comma-separated list. `/interrogate`
   spawns one read-only child per entry. An empty list means no panel;
